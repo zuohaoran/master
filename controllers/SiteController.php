@@ -22,6 +22,5 @@ class SiteController extends Controller
             return $this->render("index",['list' => $list,'model' => $model,
                 'pages' => $pages]);
         }
-
     }
 }

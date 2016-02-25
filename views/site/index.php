@@ -15,6 +15,7 @@
             <th>attacker_iplist</th>
             <th>atacker_ipcnt</th>
             <th>处理情况</th>
+            <th>操作</th>
         </tr>
         </thead>
         <tbody>
@@ -33,6 +34,7 @@
             echo "<td>".$value['attacker_iplist']."</td>";
             echo "<td>".$value['atacker_ipcnt']."</td>";
             echo "<td>".$value['process_status']."</td>";
+            echo"<td>操作</td>";
             echo "</tr>";
         }
         ?>
@@ -68,5 +70,19 @@
             "order": [[0,'asc']]
         });
 
+    </script>
+    <script>
+        $(function()
+        {
+            $("#article tbody").on("click",'tr td:nth-child(11) button',function(e)
+            {
+                layer.open({
+                    type: 1,
+                    skin: 'layui-layer-rim', //加上边框
+                    area: ['420px', '240px'], //宽高
+                    content: $(this).attr('iplist').replace(/,/g,"<br/>")
+                });
+            });
+        })
     </script>
 </div>
